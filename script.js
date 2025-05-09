@@ -270,4 +270,21 @@ window.addEventListener('orientationchange', () => {
 });
 
 // Adjust when device pixel ratio changes (for high-DPI displays)
-window.matchMedia('(resolution: 1dppx)').addEventListener('change', adjustLayout); 
+window.matchMedia('(resolution: 1dppx)').addEventListener('change', adjustLayout);
+
+// Image preview function for project cards
+function previewImage(input) {
+    const container = input.closest('.project-image-container');
+    const imageDiv = container.querySelector('.project-image');
+    
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            imageDiv.style.backgroundImage = `url(${e.target.result})`;
+            container.querySelector('.upload-overlay').style.opacity = '0';
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+    }
+} 
