@@ -399,6 +399,17 @@ footer {
     color: var(--white);
 }
 
+.visitor-counter {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--green);
+}
+
+.visitor-counter span {
+    font-weight: bold;
+    color: var(--purple);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     /* Navigation */
